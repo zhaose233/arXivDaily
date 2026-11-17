@@ -6,14 +6,17 @@ using Dates
 
 const AGENT_ROOT = LLM.AGENT_ROOT
 
-function run_daily_digest()
-    today_str = Dates.format(today(), "yyyy-mm-dd")
-    tasks = [
-        ("bsm", "https://rss.arxiv.org/rss/hep-ph"),
-        ("lat", "https://rss.arxiv.org/rss/hep-lat")
-    ]
+tasks = [
+    ("bsm", "https://rss.arxiv.org/rss/hep-ph", "Beyond Standard Model Phenomenology"),
+    ("lat", "https://rss.arxiv.org/rss/hep-lat", "Lattice Field Theory")
+]
 
-    asyncmap(tasks; ntasks = 2) do (topic, url)
+today_str = Dates.format(now(UTC) - Hour(5), "yyyy-mm-dd")
+
+
+function run_daily_digest()
+
+    asyncmap(tasks; ntasks = 2) do (topic, url, _)
         items = fetch_rss(url)
         if isempty(items)
             @info "No new items for $topic on $today_str (weekend/holiday?)."
