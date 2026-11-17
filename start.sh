@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-source .env
+if [[ -f ".env" ]]; then
+    source .env
+fi
 
 julia --project=. src/main.jl

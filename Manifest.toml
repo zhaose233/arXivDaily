@@ -2,7 +2,7 @@
 
 julia_version = "1.13.4"
 manifest_format = "2.1"
-project_hash = "18229fbed2df90f3be3db53904146f1e0c2c8077"
+project_hash = "113820a5907fc8c717c91e6a5f2c10d01b4b03c2"
 
 [[deps.Artifacts]]
 uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
@@ -31,6 +31,12 @@ git-tree-sha1 = "8e0b1057b8c3627562526304d3cc8f835fbb36c0"
 registries = "General"
 uuid = "f0e56b4a-5159-44fe-b623-3e5288b988bb"
 version = "2.8.0"
+
+[[deps.ConfigEnv]]
+git-tree-sha1 = "1891cfd27ae8256e4e69574c93dc0d6eb839903e"
+registries = "General"
+uuid = "01234589-554d-41b7-ae5c-7b6ee2db6796"
+version = "1.0.0"
 
 [[deps.Dates]]
 deps = ["Printf"]

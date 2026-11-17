@@ -1,4 +1,5 @@
 [deps]
+ConfigEnv = "01234589-554d-41b7-ae5c-7b6ee2db6796"
 EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
 HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"

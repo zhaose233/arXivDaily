@@ -1,7 +1,8 @@
 include("./LibRSS.jl")
 include("./LibLLM.jl")
+include("./LibSend.jl")
 
-using .LLM, .RSS
+using .LLM, .RSS, .Send
 using Dates
 
 const AGENT_ROOT = LLM.AGENT_ROOT
@@ -37,8 +38,23 @@ function run_daily_digest()
 
 end
 
+function send_all_reports()
+    
+    for (topic, url, description) in tasks
+        report_path = joinpath(AGENT_ROOT, "jobs", today_str, topic, "output/report.pdf")
+        try
+        send_to_tg(report_path, description, "$(topic)_$(today_str).pdf")
+        catch e
+            @warn "Send report failed."
+        end
+    end
+
+end
+
 ## % Run Pi
 
 run_daily_digest()
 
 ## % Send
+
+send_all_reports()
